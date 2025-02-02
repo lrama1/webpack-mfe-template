@@ -7,7 +7,7 @@ module.exports = {
   mode: 'development',
   devServer: {
     static: path.join(__dirname, 'dist'),
-    port: 3000,
+    port: 9002,
   },
   output: {
     publicPath: 'auto',
@@ -45,10 +45,10 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'app',
+      name: 'remoteApp',
       filename: 'remoteEntry.js',
       exposes: {
-        './App': './src/App',
+        './RemoteApp': './src/App',
       },
       shared: {
         react: { 
